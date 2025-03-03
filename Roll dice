@@ -1,0 +1,10 @@
+import random
+while True:
+  roll = input("Roll the dice?(y/n): ").lower()
+  if roll == "y":
+    print(random.randint(1,6))
+  elif roll == "n":
+    print("Thanks for playing!")
+    break
+  else:
+    print("Invalid choice!")
