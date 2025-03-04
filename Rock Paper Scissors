@@ -1,0 +1,31 @@
+import random
+while True:
+  choices = ("r","p","s")
+  choice= input("Rock Paper or Scissors? (r/p/s): ").lower()
+  if choice not in choices:
+    print("Invalid choice!")
+  else:
+    computer = random.choice(choices)
+    if choice=="r":
+      print("You chose","🥌")
+    elif choice=="p":
+      print("You chose","📃")
+    elif choice=="s":
+      print("You chose","✂️")
+    if computer=="r":
+      print("computer chose","🥌")
+    elif computer=="p":
+      print("computer chose","📃")
+    elif computer=="s":
+      print("computer chose","✂️")
+
+    if choice=="p" and computer=="r" or choice=="r" and        computer=="s" or choice=="s" and computer=="p":
+      print("You win!")
+    elif choice == computer:
+      print("Tie.")
+    else:
+      print("You lose!")
+    cont = input("Continue? (y/n): ")
+    if cont =="n":
+      print("Finished")
+      break
