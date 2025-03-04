@@ -8,7 +8,7 @@ This repository contains small but fun Python projects to practice problem-solvi
 ## 🚀 Projects  
 - **Number Guessing Game** 🎲: A simple game where the user guesses a randomly generated number.  
 - **Roll Dice** 🎲: Simulates rolling a dice and outputs a random number.  
-
+- **Rock Paper Scissors** : A game where user attemts playing rpc with computer.
 More projects will be added over time as I progress in my learning journey.  
 
 ## 🛠 Tech Stack  
