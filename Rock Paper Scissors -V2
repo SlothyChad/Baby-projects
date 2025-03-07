@@ -1,0 +1,63 @@
+import random
+Rock = "r"
+Paper = "p"
+Scissors = "s"
+emojis = {Rock: "🥌", Paper: "📃", Scissors: "✂️"}
+choices = tuple(emojis.keys())
+sname = ["wins", "loses", "ties"]
+stats = {"wins": 0, "loses": 0, "ties": 0}
+
+def user_choice():
+  while True:
+    choice = input("Rock Paper or Scissors? (r/p/s): ").lower()
+    if choice in choices:
+      return choice
+    else:
+      print("Invalid choice")
+      continue
+
+def display_choices(choice, computer):
+  print(f"You chose {emojis[choice]}")
+  print(f"Computer chose {emojis[computer]}")
+
+def determining_winner(choice, computer):
+  if ((choice == Paper and computer == Rock)
+      or (choice == Rock and computer == Scissors)
+      or (choice == Scissors and computer == Paper)):
+    return "wins"
+  elif choice == computer:
+    return "ties"
+  else:
+    return"loses"
+
+def update_scoring(result):
+  stats[result]+=1
+
+def display_stats():
+  print("\nGame results: ")
+  print(f"Wins: {stats['wins']}")
+  print(f"Loses: {stats['loses']}")
+  print(f"Ties: {stats['ties']}")
+
+def play():
+  while True:
+    choice = user_choice()
+    computer = random.choice(choices)
+    display_choices(choice, computer)
+    result = determining_winner(choice, computer)
+    
+    if result == "wins":
+      print("You win!")
+    elif result == "ties":
+      print("Tie.")
+    else:
+      print("You lose!")
+    update_scoring(result)
+    
+    cont = input("continue? (y/n): ").lower()
+    if cont == "n":
+      print("\nFinished.\nThank you for playing!")
+      display_stats()
+      break
+
+play()
