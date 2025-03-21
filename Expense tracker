@@ -1,0 +1,57 @@
+datas = {"rent": 0,"food": 0,"tuition": 0,"shopping": 0}
+
+def menu():
+   print("1. View expense list.")
+   print("2. Add new expense.")
+   print("3. Delete expense.")
+   print("4. Total expenses.")
+
+def view_exp_list():
+    for i, key in enumerate(datas.keys(),1):
+      print(f"{i}. {key}: {datas[key]}")
+
+def add_new_expense():
+   add_new = input("Enter new expense name: ")
+   datas[add_new] = float(input("Enter amount: "))
+   print("New expense has been added")
+
+def delete_an_expense():
+   view_exp_list()
+   try:
+      dlt_exp = int(input("Chose which expense you wanna delete: "))
+      if 0 <= dlt_exp < len(datas):
+         key_remove = list(datas.keys())[dlt_exp]
+         remove_data = datas.pop(key_remove)
+         print(f"{remove_data} has been deleted.")
+      else:
+         print("Enter a valid number!")
+   except ValueError:
+      print("Enter a valid number!")
+
+def total_expense():
+   total = sum(float(value) for value in datas.values())
+   print(f"Total expenses: {total}")
+   return total
+
+def main():
+   while True:
+      menu()
+      choice = input("Choose an option (1-4) or 'q' to quit: ")
+      if choice == "q":
+         break
+      try:
+         choice = int(choice)
+         if choice == 1:
+            view_exp_list()
+         elif choice == 2:
+            add_new_expense()
+         elif choice == 3:
+            delete_an_expense()
+         elif choice == 4:
+            total_expense()
+         else:
+            print("Please enter a choice between 1-4!")
+      except ValueError:
+         print("Enter a valid choice!")
+
+main()
